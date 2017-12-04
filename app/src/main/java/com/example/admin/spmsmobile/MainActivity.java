@@ -1,12 +1,13 @@
 package com.example.admin.spmsmobile;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+//工具默认集成AppCompatActivity  与设置无标题栏有冲突 这里继承 Activity
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
