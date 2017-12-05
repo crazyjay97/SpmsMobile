@@ -10,13 +10,16 @@
             android:theme="@style/AppTheme">
         <!-- activity 加android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         可实现无标题栏 全屏-->
-        <activity android:name=".MainActivity"
-                  >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <!--每添加一个页面需要注册到该文件中-->
+        <activity android:name=".HomeActivity">
+
         </activity>
     </application>
 
