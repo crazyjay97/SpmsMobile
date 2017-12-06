@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">SpmsMobile</string>
+    <string name="app_name">Demo</string>
     <string name="text_show">text</string>
     <string name="skip">skip</string>
+    <string-array name="listView">
+        <item>支持</item>
+        <item>建议</item>
+        <item>关于</item>
+    </string-array>
 </resources>
