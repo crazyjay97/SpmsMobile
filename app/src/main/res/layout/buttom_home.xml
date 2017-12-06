@@ -1,52 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
+              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="40dp">
+              android:layout_height="50dp">
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/rl1"
-    >
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:text="一"
-                  android:textAlignment="center"
-                  android:id="@+id/t1"
-                  android:layout_centerInParent="true"
-                  android:textColor="@color/red"
-        />
-    </RelativeLayout>
-    <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/rl2"
-    >
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:text="二"
-                  android:textAlignment="center"
-                  android:id="@+id/t2"
-                  android:layout_centerInParent="true"
-                  android:textColor="@color/blue"
-        />
-    </RelativeLayout>
+                    android:layout_weight="10">
+        <View   android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/red"
+                android:id="@+id/scrollBar"/>
 
-    <RelativeLayout android:layout_width="match_parent"
+    </RelativeLayout>
+    <LinearLayout   android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:id="@+id/rl3"
-    >
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:text="三"
-                  android:textAlignment="center"
-                  android:id="@+id/t3"
-                  android:layout_centerInParent="true"
-                  android:textColor="@color/blue"
-        />
-    </RelativeLayout>
+                    android:orientation="horizontal">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/rl1">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:text="一"
+                      android:textAlignment="center"
+                      android:id="@+id/t1"
+                      android:layout_centerInParent="true"
+                      android:textColor="@color/red"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/rl2">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:text="二"
+                      android:textAlignment="center"
+                      android:id="@+id/t2"
+                      android:layout_centerInParent="true"
+                      android:textColor="@color/blue"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/rl3">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:text="三"
+                      android:textAlignment="center"
+                      android:id="@+id/t3"
+                      android:layout_centerInParent="true"
+                      android:textColor="@color/blue"/>
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

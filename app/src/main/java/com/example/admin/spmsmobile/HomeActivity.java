@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +25,9 @@ public class HomeActivity extends FragmentActivity {
 	private RelativeLayout rl2;
 	private RelativeLayout rl3;
 	private ViewPager viewPager;
+	private View scorllBar;
+	protected int widthPixels;
+	private RelativeLayout.LayoutParams params;
 	private List<Fragment> fragmentList = new ArrayList<Fragment>() ;
 
 	@Override
@@ -33,6 +38,14 @@ public class HomeActivity extends FragmentActivity {
 		initView();
 	}
 	public void initView(){
+		//获取屏幕信息
+		DisplayMetrics dm =getResources().getDisplayMetrics();
+		//获取屏幕宽
+		widthPixels = dm.widthPixels;
+		scorllBar = findViewById(R.id.scrollBar);
+		params = (RelativeLayout.LayoutParams)scorllBar.getLayoutParams();
+		params.width = widthPixels/3;
+		scorllBar.setLayoutParams(params);
 		viewPager = findViewById(R.id.vp);
 		t1 = findViewById(R.id.t1);
 		t2 = findViewById(R.id.t2);
@@ -61,6 +74,14 @@ public class HomeActivity extends FragmentActivity {
 		viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+				System.out.println("position:"+position+" positionOffset:"+positionOffset+" positionOffsetPixels:"+positionOffsetPixels+" params.getMarginStart():"+params.getMarginStart());
+				if(position == 1){
+					params.setMarginStart(widthPixels/3+positionOffsetPixels/3);
+				}else{
+					if(positionOffsetPixels != 0)
+					params.setMarginStart(positionOffsetPixels/3);
+				}
+				scorllBar.setLayoutParams(params);
 
 			}
 
@@ -80,7 +101,6 @@ public class HomeActivity extends FragmentActivity {
 		rl1.setOnClickListener(new TextViewOnclickListener(rl1,viewPager));
 		rl2.setOnClickListener(new TextViewOnclickListener(rl2,viewPager));
 		rl3.setOnClickListener(new TextViewOnclickListener(rl3,viewPager));
-
 
 	}
 
