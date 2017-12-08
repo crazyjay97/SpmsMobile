@@ -1,13 +1,20 @@
 package com.example.admin.spmsmobile;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,7 +42,17 @@ public class HomeActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_home);
+		//设置标题栏和app主题统一
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			Window window = getWindow();
+			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.setStatusBarColor(Color.TRANSPARENT);
+		}
 		initView();
+		//设置菜单item点击监听事件
+		setNavigationLisenter();
 	}
 	public void initView(){
 		//获取屏幕信息
@@ -124,6 +141,37 @@ public class HomeActivity extends FragmentActivity {
 			default:
 				break;
 		}
+	}
+	private void setNavigationLisenter(){
+		NavigationView navigationView = findViewById(R.id.nav_view);
+		//设置选中事件
+		navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+				System.out.println("item.getGroupId:"+item.getGroupId()+"\titem.getItemId:"+item.getItemId());
+				int i = 0;
+				switch (item.getGroupId()){
+					case R.id.g1:i = 1;
+						break;
+					case R.id.g2:i = 2;
+						break;
+					default:
+						break;
+				}
+				System.out.println("G"+i);
+				switch (item.getItemId()){
+					case R.id.m1 : i = 1;
+						break;
+					case R.id.m2 : i = 2;
+						break;
+					default:
+						break;
+				}
+				System.out.println("M"+i);
+
+				return false;
+			}
+		});
 	}
 
 }

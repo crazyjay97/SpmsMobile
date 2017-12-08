@@ -41,6 +41,25 @@
                 android:icon="@mipmap/ic_launcher"
                 android:title="钱"/>
     </group>
+    <group android:id="@+id/g7">
+        <item
+                android:id="@+id/m7"
+                android:icon="@mipmap/ic_launcher"
+                android:title="钱"/>
+    </group>
+    <group android:id="@+id/g8">
+        <item
+                android:id="@+id/m8"
+                android:icon="@mipmap/ic_launcher"
+                android:title="钱"/>
+
+    </group>
+    <group android:id="@+id/g9">
+        <item
+                android:id="@+id/m9"
+                android:icon="@mipmap/ic_launcher"
+                android:title="钱"/>
+    </group>
 
 
 </menu>
